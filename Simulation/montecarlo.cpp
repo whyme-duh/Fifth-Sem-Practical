@@ -12,8 +12,6 @@ void generateRandomPoint(double &x, double &y) {
 int main() {
     int numPoints; 
     int numInsideCircle = 0;
-    int radius;
-    cout<<"Enter the radius of the circle : ";
     cin >> radius;
     cout<<"Enter the number of points (greater the number, greater the accuracy) : ";
     cin >> numPoints;
@@ -24,7 +22,7 @@ int main() {
             numInsideCircle++;
         }
     }
-    double area = radius^2 * numInsideCircle / numPoints;
+    double pi = 4* numInsideCircle / numPoints;
     cout << "Estimated value of pi: " << pi << endl;
     return 0;
 }

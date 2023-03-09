@@ -12,7 +12,7 @@ void generateRandomPoint(double &x, double &y) {
 int main() {
     int numPoints; 
     int numInsideCircle = 0;
-    cin >> radius;
+    
     cout<<"Enter the number of points (greater the number, greater the accuracy) : ";
     cin >> numPoints;
     for (int i = 0; i < numPoints; i++) {

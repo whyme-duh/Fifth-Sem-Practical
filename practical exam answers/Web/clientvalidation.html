@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form Validation Example</title>
+	<script>
+		function validateForm() {
+			var name = document.forms["myForm"]["name"].value;
+			var age = document.forms["myForm"]["age"].value;
+			var gender = document.forms["myForm"]["gender"].value;
+			var country = document.forms["myForm"]["country"].value;
+
+			if (name == "" || age == "" || gender == "" || country == "") {
+				alert("All fields are required");
+				return false;
+			}
+
+			if (!/^[a-zA-Z ]{6,}$/.test(name)) {
+				alert("Name must only contain alphabets and must be greater than 6 characters");
+				return false;
+			}
+
+			if (isNaN(age) || age < 16 || age > 50) {
+				alert("Age must be an integer and must be between 16 and 50");
+				return false;
+			}
+		}
+	</script>
+</head>
+
+<body>
+	<h2>Form Validation Example</h2>
+	<form name="myForm" onsubmit="return validateForm()" method="post">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+
+		<label for="age">Age:</label>
+		<input type="text" id="age" name="age"><br><br>
+
+		<label for="gender">Gender:</label>
+		<select id="gender" name="gender">
+			<option value=""></option>
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="other">Other</option>
+		</select><br><br>
+
+		<label for="country">Country:</label>
+		<input type="text" id="country" name="country"><br><br>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+
+</html>

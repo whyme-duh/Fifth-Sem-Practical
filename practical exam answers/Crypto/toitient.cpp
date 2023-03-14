@@ -1,27 +1,28 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
 
-int gcd(int a, int b) {
-    if (b == 0) {
-        return a;
-    }
-    return gcd(b, a % b);
-}
+int eulerTotient(int n) {
+    int ans = n;
 
-int totient(int n) {
-    int result = n;
-    for (int i = 2; i <= n; i++) {
-        if (gcd(i, n) == 1) {
-            result--;
+    //Iterating till the sqaure root of 'n'
+    for (int i = 2; i * i <= n; i++) {
+        
+        //If 'i' is a factor of 'n'
+        if (n % i == 0) {
+            while (n % i == 0){
+                n /= i;
+            }
+            ans -= ans / i;
         }
     }
-    return result;
+    if (n > 1){
+        ans -= ans / n;
+    }
+    
+    return ans;
 }
 
 int main() {
-    int n;
-    cout << "Enter a positive number: ";
-    cin >> n;
-    cout << "Totient of " << n << " is: " << totient(n) << endl;
-    return 0;
+    int n = 12;
+    cout << eulerTotient(n) << endl;
 }
